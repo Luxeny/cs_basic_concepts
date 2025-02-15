@@ -9,39 +9,41 @@ class Program
         Write("Введите номер задания (1 или 2): ");
         int choice = int.Parse(ReadLine());
 
-        if (choice == 1)
+        switch (choice)
         {
-            // Задание 1: Вычисление a в степени n
-            Write("Введите основание степени a: ");
-            int baseNumber = int.Parse(ReadLine());
+            case 1:
+                // Задание 1: Вычисление a в степени n
+                Write("Введите основание степени a: ");
+                int baseNumber = int.Parse(ReadLine());
 
-            Write("Введите показатель степени n: ");
-            int exponent = int.Parse(ReadLine());
+                Write("Введите показатель степени n: ");
+                int exponent = int.Parse(ReadLine());
 
-            int powerResult = Power(baseNumber, exponent);
-            WriteLine($"{baseNumber}^{exponent} = {powerResult}");
-        }
-        else if (choice == 2)
-        {
-            // Задание 2: Нахождение числа n после манипуляций с числом x
-            Write("Введите число x (x >= 100): ");
-            string inputNumber = ReadLine();
+                int powerResult = Power(baseNumber, exponent);
+                WriteLine($"{baseNumber}^{exponent} = {powerResult}");
+                break;
 
-            if (inputNumber.Length < 3)
-            {
-                WriteLine("Число x должно быть не менее 3 цифр.");
-                return;
-            }
+            case 2:
+                // Задание 2: Нахождение числа n после манипуляций с числом x
+                Write("Введите число x (x >= 100): ");
+                string inputNumber = ReadLine();
 
-            char secondDigit = inputNumber[1];
-            string numberWithoutSecondDigit = inputNumber.Remove(1, 1);
-            string resultNumber = numberWithoutSecondDigit + secondDigit;
+                if (inputNumber.Length < 3)
+                {
+                    WriteLine("Число x должно быть не менее 3 цифр.");
+                    return;
+                }
 
-            WriteLine($"Полученное число: {resultNumber}");
-        }
-        else
-        {
-            WriteLine("Неверный выбор. Пожалуйста, выберите 1 или 2.");
+                char secondDigit = inputNumber[1];
+                string numberWithoutSecondDigit = inputNumber.Remove(1, 1);
+                string resultNumber = numberWithoutSecondDigit + secondDigit;
+
+                WriteLine($"Полученное число: {resultNumber}");
+                break;
+
+            default:
+                WriteLine("Неверный выбор. Пожалуйста, выберите 1 или 2.");
+                break;
         }
     }
 
