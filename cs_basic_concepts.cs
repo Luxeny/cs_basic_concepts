@@ -12,33 +12,11 @@ class Program
         switch (choice)
         {
             case 1:
-                // Задание 1: Вычисление a в степени n
-                Write("Введите основание степени a: ");
-                int baseNumber = int.Parse(ReadLine());
-
-                Write("Введите показатель степени n: ");
-                int exponent = int.Parse(ReadLine());
-
-                int powerResult = Power(baseNumber, exponent);
-                WriteLine($"{baseNumber}^{exponent} = {powerResult}");
+                CalculatePower();
                 break;
 
             case 2:
-                // Задание 2: Нахождение числа n после манипуляций с числом x
-                Write("Введите число x (x >= 100): ");
-                string inputNumber = ReadLine();
-
-                if (inputNumber.Length < 3)
-                {
-                    WriteLine("Число x должно быть не менее 3 цифр.");
-                    return;
-                }
-
-                char secondDigit = inputNumber[1];
-                string numberWithoutSecondDigit = inputNumber.Remove(1, 1);
-                string resultNumber = numberWithoutSecondDigit + secondDigit;
-
-                WriteLine($"Полученное число: {resultNumber}");
+                ManipulateNumber();
                 break;
 
             default:
@@ -47,7 +25,39 @@ class Program
         }
     }
 
-    // Метод для вычисления степени числа
+    // Задание 1: Вычисление a в степени n
+    static void CalculatePower()
+    {
+        Write("Введите основание степени a: ");
+        int baseNumber = int.Parse(ReadLine());
+
+        Write("Введите показатель степени n: ");
+        int exponent = int.Parse(ReadLine());
+
+        int powerResult = Power(baseNumber, exponent);
+        WriteLine($"{baseNumber}^{exponent} = {powerResult}");
+    }
+
+    // Задание 2: Манипуляции с числом x
+    static void ManipulateNumber()
+    {
+        Write("Введите число x (x >= 100): ");
+        string inputNumber = ReadLine();
+
+        if (inputNumber.Length < 3)
+        {
+            WriteLine("Число x должно быть не менее 3 цифр.");
+            return;
+        }
+
+        char secondDigit = inputNumber[1];
+        string numberWithoutSecondDigit = inputNumber.Remove(1, 1);
+        string resultNumber = numberWithoutSecondDigit + secondDigit;
+
+        WriteLine($"Полученное число: {resultNumber}");
+    }
+
+    // Вспомогательный метод для вычисления степени числа
     static int Power(int baseNumber, int exponent)
     {
         int result = 1;
