@@ -1,13 +1,11 @@
-﻿using System;
+using System;
 using static System.Console;
 
 class Program
 {
     static void Main()
     {
-        WriteLine("Выберите задание:");
-        WriteLine("1. Вычислить a^n");
-        WriteLine("2. Найти число n после манипуляций с числом x");
+        WriteLine("Выберите задание:\n1. Вычислить a^n\n2. Найти число n после манипуляций с числом x");
         Write("Введите номер задания (1 или 2): ");
         int choice = int.Parse(ReadLine());
 
